@@ -1,0 +1,27 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Personas.ViewModels"
+             x:Class="Personas.Pages.PeoplePage"
+             Title="Lista de Personas">
+
+
+    <VerticalStackLayout Padding="10">
+        <Button Text="Cargar Personas" Command="{Binding LoadPeopleCommand}" />
+
+        <CollectionView ItemsSource="{Binding People}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10" Orientation="Horizontal" Spacing="10">
+                        <Image Source="{Binding PhotoUrl}" WidthRequest="60" HeightRequest="60" />
+                        <StackLayout>
+                            <Label Text="{Binding name}" FontSize="18" FontAttributes="Bold" />
+                            <Label Text="{Binding age, StringFormat='Edad: {0}'}" />
+                            <Label Text="{Binding email}" />
+                            <Label Text="{Binding gender}" />
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
